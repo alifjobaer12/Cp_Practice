@@ -283,7 +283,7 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    cout<<"alif"<<nl;
+    cout<<"AliF"<<nl;
     return;
 }
 
