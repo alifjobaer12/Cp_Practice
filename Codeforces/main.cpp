@@ -283,16 +283,7 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int n; cin>>n;
-    vci a(2*n); arr_in(a, 2*n);
     
-    int ev = 0, od = 0;
-    for(int i=0; i<n*2; i++) {
-        if(a[i]%2) od++;
-        else ev++;
-    }
-    if(od == ev) yes
-    else no
     return;
 }
 
@@ -305,11 +296,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }
