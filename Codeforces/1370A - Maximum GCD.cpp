@@ -283,19 +283,12 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int n, m; cin>>n>>m;
+    int n; cin>>n;
 
-    int es = n/m;
-    int ans = n+es;
-    int t = ans - n;
-    while(t>0) {
-        t /= m;
-        ans += t;
-        cout<<t<<"-"<<ans<<" ";
-    }
-    if(!(ans%m)) ans++;
-
-    cout<<ans<<nl;
+    int m1 = ceil(n, 2);
+    int m2 = ceil(n-1, 2);
+    int g = max(gcd(m1, n), gcd(m2, n-1));
+    cout<<g<<endl;
     return;
 }
 
@@ -308,11 +301,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }
