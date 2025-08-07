@@ -283,29 +283,18 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int t[10][10] = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                    {1, 2, 2, 2, 2, 2, 2, 2, 2, 1},
-                    {1, 2, 3, 3, 3, 3, 3, 3, 2, 1},
-                    {1, 2, 3, 4, 4, 4, 4, 3, 2, 1},
-                    {1, 2, 3, 4, 5, 5, 4, 3, 2, 1},
-                    {1, 2, 3, 4, 5, 5, 4, 3, 2, 1},
-                    {1, 2, 3, 4, 4, 4, 4, 3, 2, 1},
-                    {1, 2, 3, 3, 3, 3, 3, 3, 2, 1},
-                    {1, 2, 2, 2, 2, 2, 2, 2, 2, 1},
-                    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
+    int x, y, z; cin>>x>>y>>z;
     
-    int n; n=10;
+    int a = min(x, y);
+    int c = min(y, z);
+    int b = min(x, z);
 
-    int sum = 0;
-    for (int i = 0; i < n; i++) {
-        string a; cin>>a;
-        for (int j = 0; j < n; j++) {
-            if (a[j] == 'X')
-                sum += t[i][j];
-        }
+    if(x==max(a, b) && y==max(a, c) && z==max(b, c)) {
+        yes
+        cout<<a<<" "<<b<<" "<<c<<nl;
     }
+    else no
 
-    cout<<sum<<nl;
     return;
 }
 
