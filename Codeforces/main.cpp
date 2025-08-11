@@ -284,24 +284,15 @@ bool isPrime(int n) {
 
 void AliF_solve() {
     int n; cin>>n;
-
-    int a = power(2, n);
-    int b = power(2, n-1);
-    int i = 1, j = n-2;
-    int ctn = 0;
-    while((n/2) -1 > ctn) {
-        if(a > b) {
-            a += power(2, i);
-            b += power(2, j);
-        }
-        else {
-            a += power(2, j);
-            b += power(2, i);
-        }
-        i++; j--; ctn++;
+    for(int i=1; i<=n; i++) {
+        if(i==n && !(i%2)) {
+            cout<<"2"<<nl;
+            return;
+        } 
+        if(!(i%2)) cout<<"3"<<" ";
+        else cout<<"-1"<<" ";
     }
-
-    cout<<abs(a-b)<<nl;
+    cout<<nl;
     return;
 }
 
