@@ -1,3 +1,4 @@
+
 //             starting with the name of almighty ALLAH           //
 //                   ~ HI I'M alifjobaer12 ~                      //
 //              ^.^  TARGET NEXT ICPC REGION  ^.^                 //
@@ -121,13 +122,13 @@ struct custom_hash {
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
         return x ^ (x >> 31);
     }
-    
+
     size_t operator()(uint64_t x) const {
         static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
         return splitmix64(x + FIXED_RANDOM);
     }
 };
-    
+
 template <typename F, typename S>
 ostream &operator<<(ostream &os, const pair<F, S> &p) {
     return os << "(" << p.first << ", " << p.second << ")";
@@ -265,13 +266,13 @@ long long pinverse (int num, int md) {
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void precomp() {
-    // for(int i=1; i<100; i++) cout<<i<<" \n"[i==99];
+
     return;
 }
 
 bool isPrime(int n) {
-    if (n <= 1) return false;          
-    if (n == 2 || n == 3) return true; 
+    if (n <= 1) return false;
+    if (n == 2 || n == 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
 
     for (int i = 5; i <= sqrt(n); i += 6) {
@@ -286,32 +287,19 @@ void AliF_solve() {
     int n; cin>>n;
     vci a(n); arr_in(a, n);
 
-    vci b, c;
-    for(int i=0; i<n-1; i++) {
-        if(a[i]%a[i+1]) {
-            b.pb(a[i]); c.pb(a[i+1]);
-            i++;
-        }
-        // if(i==n-1) c.pb(a[i]);
-    }
-    if(n%2 && a[n-1] % a[n-2]) b.pb(a[n-1]); 
+    int mn = INT_MAX;
+    for(auto val: a) mn = min(mn, val);
+    int sum = 0;
+    for(auto val: a) sum += val-mn;
 
-    int lb = b.size();
-    int lc = c.size();
-    if(lc && lb) {
-        cout<<lb<<" "<<lc<<nl;
-        for(auto val: b) cout<<val<<" ";
-        cout<<nl;
-        for(auto val: c) cout<<val<<" ";
-        cout<<nl;
-    }
-    else cout<<"-1"<<nl;
+    cout<<sum<<nl;
+
     return;
 }
 
 int32_t main() {
     code_firster();
-    // file();                          
+    // file();
     // first create inputf.in && outpuft.out file
 
     precomp();
@@ -323,7 +311,7 @@ int32_t main() {
         // cout << "Case " << tc << ": ";
         AliF_solve();
     }
-    
+
     return 0;
 }
 

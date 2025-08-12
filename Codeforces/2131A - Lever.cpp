@@ -284,28 +284,19 @@ bool isPrime(int n) {
 
 void AliF_solve() {
     int n; cin>>n;
-    vci a(n); arr_in(a, n);
+    vci a(n), b(n);
+    arr_in(a, n);
+    arr_in(b, n);
 
-    vci b, c;
-    for(int i=0; i<n-1; i++) {
-        if(a[i]%a[i+1]) {
-            b.pb(a[i]); c.pb(a[i+1]);
-            i++;
+    int ans = 0;
+    for(int i=0; i<n; i++) {
+        if(a[i]>b[i]) {
+            ans += a[i]-b[i];
+            // a[i]--;
         }
-        // if(i==n-1) c.pb(a[i]);
     }
-    if(n%2 && a[n-1] % a[n-2]) b.pb(a[n-1]); 
 
-    int lb = b.size();
-    int lc = c.size();
-    if(lc && lb) {
-        cout<<lb<<" "<<lc<<nl;
-        for(auto val: b) cout<<val<<" ";
-        cout<<nl;
-        for(auto val: c) cout<<val<<" ";
-        cout<<nl;
-    }
-    else cout<<"-1"<<nl;
+    cout<<ans+1<<nl;
     return;
 }
 
