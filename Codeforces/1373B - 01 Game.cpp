@@ -283,13 +283,15 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int n, m; cin>>n>>m;
-    if(n==m) {
-        cout<<"0"<<nl;
-        return;
+    string a; cin>>a;
+
+    int zr = 0, on = 0;
+    for(auto val: a) {
+        if(val=='1') on++;
+        else zr++;
     }
-    if(n>m && abs(n-m)%2 || n<m && !(abs(n-m)%2)) cout<<"2"<<nl;
-    else cout<<"1"<<nl;
+    if(min(zr, on)%2) cout<<"DA"<<nl;
+    else cout<<"NET"<<nl;
     return;
 }
 
