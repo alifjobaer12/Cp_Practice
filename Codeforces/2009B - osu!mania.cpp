@@ -283,9 +283,17 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int l, r, d, u; cin>>l>>r>>d>>u;
-
-    (l==r && r==u && u==d) ? cout<<"Yes"<<nl : cout<<"No"<<nl;
+    int n; cin>>n;
+    int a[n][4]; 
+    vci ans;
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<4; j++) {
+            char t; cin>>t;
+            if(t=='#') ans.pb(j+1);
+        }
+    }
+    reverse(ans.begin(), ans.end());
+    for(int i=0; i<ans.size(); i++) cout<<ans[i]<<" \n"[i==ans.size()-1];
     return;
 }
 
