@@ -283,14 +283,17 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int a, b, c, n; cin>>a>>b>>c>>n;
+    int n, m; cin>>n>>m;
 
-    int t = max(a, max(b, c));
-    int a1 = t-a;
-    int b1 = t-b;
-    int c1 = t-c;
-    if((a+b+c+n) % 3 || (a1+b1+c1) > n) no
-    else yes
+    int mn = min(m, n);
+    if(mn*2 >= max(n, m)) {
+        cout<<pow(mn*2, 2)<<nl;
+    }
+    else {
+        cout<<pow(max(n, m), 2)<<nl;
+    }
+
+    // cout<<4*4*4<<nl;
     return;
 }
 
