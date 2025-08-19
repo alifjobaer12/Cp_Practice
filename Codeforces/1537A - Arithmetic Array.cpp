@@ -283,23 +283,15 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int k; cin>>k;
-    vci a(12); arr_in(a, 12);
+    int n; cin>>n; 
+    vci a(n); arr_in(a, n);
 
-    sort(a.rbegin(), a.rend());
-    int ctn = 0, sum = 0;
-    // cout<<a<<nl;
-    for(auto val: a) {
-        if(sum<k) {
-            ctn++;
-            sum += val;
-        } 
-    }
-    if(sum<k) {
-        cout<<"-1"<<nl;
-        return;
-    }
-    cout<<ctn<<nl;
+    int sum = 0;
+    for(int i=0; i<n; i++) sum += a[i];
+
+    if(sum>=n) cout<<sum-n<<nl;
+    else cout<<"1"<<nl;
+    // else cout<<"0"<<nl;
     return;
 }
 
@@ -312,11 +304,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }
