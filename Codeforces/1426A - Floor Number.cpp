@@ -283,56 +283,21 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int n; cin>>n;
-
-    int t = n, ctn = 0;
-    int tt = n%10;
-    while(t>0) {
-        int ln = t%10;
-        // cout<<ln<<"-"<<t<<" ";
-        if(ln!=tt) {
-            cout<<"0"<<nl;
+    int n, x; cin>>n>>x;
+    
+    if(n<3) {
+        cout<<"1"<<nl;
+        return;
+    }
+    int a = 2, i = 2;
+    while(a!=n) {
+        a += x;
+        if(a>=n) {
+            cout<<i<<endl;
             return;
         }
-        ctn++;
-        t /= 10;
+        i++;
     }
-    
-    if(ctn == 1) {
-        cout<<"0"<<nl;
-        return;
-    }
-    if(ctn==2) {
-        cout<<"1"<<endl;
-        cout<<n%10<<nl;
-        return;
-    }
-    if(ctn>=4 && ctn<18) {
-        cout<<"2"<<endl;
-        cout<<n%10<<n%10<<" "<<n%10<<0<<n%10<<nl;
-        return;
-    }
-    if(ctn>=18) {
-        cout<<"3"<<endl;
-        for(int i=0; i<ctn/2; i++) cout<<n%10;
-        cout<<" ";
-        for(int i=0; i<3; i++) cout<<n%10;
-        // cout<<" ";
-        for(int i=0; i<3; i++) cout<<0;
-        // cout<<" ";
-        for(int i=0; i<3; i++) cout<<n%10;
-        // cout<<" ";
-        for(int i=0; i<3; i++) cout<<0;
-        // cout<<" ";
-        for(int i=0; i<3; i++) cout<<n%10;
-        cout<<" ";
-        for(int i=0; i<ctn-1; i++) {
-            if(i%2) cout<<0;
-            else cout<<n%10;
-        }
-        cout<<" ";
-    }
-    cout<<nl;
     return;
 }
 
