@@ -283,9 +283,7 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    int n; cin>>n;
-    vci a(n); arr_in(a, n);
-    arr_out(a, n);
+    
     return;
 }
 

@@ -67,9 +67,9 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define gcd(a, b) __gcd(a, b)
 #define lcm(a, b) (a * (b / gcd(a, b)))
 #define sqr(a) ((a) * (a))
-#define arr_in(v,n) for(int i=0;i<n;i++) cin>>v[i];
-#define arr_out(v,n) for(int i=0; i<n; i++) cout<<v[i]<<" ";cout<<endl;
-#define _out(v) for(auto &val:v)cout<<val<<" ";cout<<endl;
+#define arr_in(v,n) for(int i=0;i<n;i++) cin>>v[i]
+#define arr_out(v,n) for(int i=0; i<n; i++) cout<<v[i]<<" \n"[i==n-1]
+#define _out(v) for(auto &val:v)cout<<val<<" ";cout<<endl
 #define srt_vc(v) sort(v.begin(),v.end());
 #define rsrt_vc(v) sort(v.rbegin(),v.rend());
 #define rv_vc(v) reverse(v.begin(),v.end());
@@ -265,7 +265,7 @@ long long pinverse (int num, int md) {
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void precomp() {
-
+    // for(int i=1; i<100; i++) cout<<i<<" \n"[i==99];
     return;
 }
 
@@ -283,7 +283,7 @@ bool isPrime(int n) {
 }
 
 void AliF_solve() {
-    cout<<"AliF"<<nl;
+    
     return;
 }
 
