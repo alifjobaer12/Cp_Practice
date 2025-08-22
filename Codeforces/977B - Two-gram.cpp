@@ -286,14 +286,21 @@ void AliF_solve() {
     int n; cin>>n;
     string a; cin>>a;
 
-    int ans = 1, ctn = 1;
-    for(int i=0; i<n; i++) {
-        if(a[i]!=a[i+1]) ctn = 1;
-        else ctn++;
-        ans = max(ctn, ans);
+    map<pair<char, char>, int> m;
+    for(int i=0; i<a.size()-1; i++) {
+        pair<char, char> t;
+        t = {a[i], a[i+1]};         
+        m[t]++;
     }
-
-    cout<<ans+1<<nl;
+    int mx = 0;
+    pair<char, char> t;
+    for(auto val: m) {
+        if(mx<val.S) {
+            t=val.F;
+            mx = max(mx, val.S);
+        } 
+    }
+    cout<<t.F<<t.S<<nl;
     return;
 }
 
@@ -306,11 +313,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }
