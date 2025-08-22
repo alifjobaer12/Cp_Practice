@@ -262,24 +262,24 @@ long long pinverse (int num, int md) {
     return bigmod(num, md - 2, md);
 }
 
-mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-
-void precomp() {
-    // for(int i=1; i<100; i++) cout<<i<<" \n"[i==99];
-    return;
-}
-
 bool isPrime(int n) {
     if (n <= 1) return false;          
     if (n == 2 || n == 3) return true; 
     if (n % 2 == 0 || n % 3 == 0) return false;
-
+    
     for (int i = 5; i <= sqrt(n); i += 6) {
         if (n % i == 0 || n % (i + 2) == 0)
-            return false;
+        return false;
     }
-
+    
     return true;
+}
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+void precomp() {
+
+    return;
 }
 
 void AliF_solve() {
