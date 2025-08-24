@@ -121,13 +121,13 @@ struct custom_hash {
         x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
         return x ^ (x >> 31);
     }
-    
+
     size_t operator()(uint64_t x) const {
         static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
         return splitmix64(x + FIXED_RANDOM);
     }
 };
-    
+
 template <typename F, typename S>
 ostream &operator<<(ostream &os, const pair<F, S> &p) {
     return os << "(" << p.first << ", " << p.second << ")";
@@ -263,15 +263,15 @@ long long pinverse (int num, int md) {
 }
 
 bool isPrime(int n) {
-    if (n <= 1) return false;          
-    if (n == 2 || n == 3) return true; 
+    if (n <= 1) return false;
+    if (n == 2 || n == 3) return true;
     if (n % 2 == 0 || n % 3 == 0) return false;
-    
+
     for (int i = 5; i <= sqrt(n); i += 6) {
         if (n % i == 0 || n % (i + 2) == 0)
         return false;
     }
-    
+
     return true;
 }
 
@@ -284,26 +284,19 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n;
-    int tw = 0, tr = 0;
-    while(!(n%2)) {
-        tw++;
+    int ctn = 0;
+    while(n!=0) {
+        ctn++;
         n /= 2;
     }
-    while(!(n%3)) {
-        tr++;
-        n /= 3;
-    }
 
-    if(n==1 && tw<=tr) cout<< 2*tr-tw <<nl;
-    else cout<<"-1"<<nl;
-
-    // cout<<tw<<" "<<tr<<nl;
+    cout<<(1<<ctn-1)-1<<nl;
     return;
 }
 
 int32_t main() {
     code_firster();
-    // file();                          
+    // file();
     // first create inputf.in && outpuft.out file
 
     precomp();
@@ -315,7 +308,7 @@ int32_t main() {
         // cout << "Case " << tc << ": ";
         AliF_solve();
     }
-    
+
     return 0;
 }
 
