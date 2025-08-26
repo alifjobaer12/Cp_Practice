@@ -283,18 +283,12 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n, t; cin>>n>>t;
-    vci a(n); arr_in(a, n);
+    int a, b, c, d; cin>>a>>b>>c>>d;
 
-    int pos = 1;
-    while(pos<=t) {
-        pos = pos+a[pos-1];
-        if(pos==t) {
-            yes
-            return;
-        } 
-    }
-    no
+    int ma = max(a, b);
+    int mb = min(a, b);
+    if((c<ma && c>mb) ^ (d<ma && d>mb)) yes
+    else no
     return;
 }
 
@@ -307,11 +301,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }

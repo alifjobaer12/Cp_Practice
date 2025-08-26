@@ -283,18 +283,17 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n, t; cin>>n>>t;
+    int n; cin>>n;
     vci a(n); arr_in(a, n);
 
-    int pos = 1;
-    while(pos<=t) {
-        pos = pos+a[pos-1];
-        if(pos==t) {
-            yes
-            return;
-        } 
+    int sum = 0, ctn = 0, mx = 0;
+    
+    for(int i=0; i<n; i++) {
+        sum += a[i];
+        mx = max(mx, a[i]);
+        if(sum - mx == mx) ctn++;
     }
-    no
+    cout<<ctn<<nl;
     return;
 }
 
@@ -307,11 +306,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }
