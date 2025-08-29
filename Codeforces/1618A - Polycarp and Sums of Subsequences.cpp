@@ -283,12 +283,21 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int k2, k3, k5, k6; cin>>k2>>k3>>k5>>k6;
+    vci a(7); arr_in(a, 7);
 
-    int mn = min(k2, min(k5, k6));
-    k2 -= mn;
-    int ans = mn*256 + min(k2, k3)*32;
-    cout<<ans<<nl;
+    int l = a[6];
+    for(int i=5; i>=0; i--) {
+        int t = l-a[i];
+        for(int j=0; j<i; j++) {
+            for(int k=j+1; k<i; k++) {
+                if(a[j]+a[k]>t) break;
+                if(a[j]+a[k]==t) {
+                    cout<<a[j]<<" "<<a[k]<<" "<<a[i]<<nl;
+                    return;
+                }
+            }
+        }
+    }
     return;
 }
 
@@ -301,11 +310,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }

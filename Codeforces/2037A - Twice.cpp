@@ -283,12 +283,16 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int k2, k3, k5, k6; cin>>k2>>k3>>k5>>k6;
+    int n; cin>>n;
+    vci a(n); arr_in(a, n);
 
-    int mn = min(k2, min(k5, k6));
-    k2 -= mn;
-    int ans = mn*256 + min(k2, k3)*32;
-    cout<<ans<<nl;
+    map<int, int> m;
+    int sum = 0;
+    for(int i=0; i<n; i++) {
+        m[a[i]]++;
+    }
+    for(auto val: m) sum += val.S/2;
+    cout<<sum<<nl;
     return;
 }
 
@@ -301,11 +305,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }

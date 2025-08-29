@@ -283,12 +283,36 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int k2, k3, k5, k6; cin>>k2>>k3>>k5>>k6;
+    int n; cin>>n;
 
-    int mn = min(k2, min(k5, k6));
-    k2 -= mn;
-    int ans = mn*256 + min(k2, k3)*32;
-    cout<<ans<<nl;
+    for(int i=0; i<=n; i++) {
+        // cout<<" ";
+        for(int s=n-(2*i)+(n-1); s>=0; s--) cout<<" ";
+        for(int j=0; j<=i; j++) {
+            if(j==i) cout<<j;
+            else cout<<j<<" ";
+        }
+        if(i) cout<<" ";
+        for(int j=i-1; j>=0; j--) {
+            if(j==0) cout<<j;
+            else cout<<j<<" ";
+        }
+        cout<<nl;
+    }
+    for(int i=n-1; i>=0; i--) {
+        // cout<<" ";
+        for(int s=n-(2*i)+(n-1); s>=0; s--) cout<<" ";
+        for(int j=0; j<=i; j++) {
+            if(j==i) cout<<j;
+            else cout<<j<<" ";
+        }
+        if(i) cout<<" ";
+        for(int j=i-1; j>=0; j--) {
+            if(j==0) cout<<j;
+            else cout<<j<<" ";
+        }
+        cout<<nl;
+    }
     return;
 }
 

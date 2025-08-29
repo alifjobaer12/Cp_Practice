@@ -283,12 +283,20 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int k2, k3, k5, k6; cin>>k2>>k3>>k5>>k6;
+    int n, k; cin>>n>>k;
+    // int num; cin>>num;
 
-    int mn = min(k2, min(k5, k6));
-    k2 -= mn;
-    int ans = mn*256 + min(k2, k3)*32;
-    cout<<ans<<nl;
+    bool isK = true;
+    for(int i=0; i<n; i++) {
+        char t; cin>>t;
+        if(t-'0' < k && isK) {
+            cout<<k;
+            isK=false;
+        } 
+        cout<<t;
+    }
+    if(isK) cout<<k;
+    cout<<nl;
     return;
 }
 
@@ -301,11 +309,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }

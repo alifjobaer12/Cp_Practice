@@ -283,12 +283,24 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int k2, k3, k5, k6; cin>>k2>>k3>>k5>>k6;
-
-    int mn = min(k2, min(k5, k6));
-    k2 -= mn;
-    int ans = mn*256 + min(k2, k3)*32;
-    cout<<ans<<nl;
+    int a[5][5];
+    for(int i=0; i<5; i++) for(int j=0; j<5; j++) a[i][j]=0;
+    int ans[4][4];
+    for(int i=1; i<=3; i++) 
+        for(int j=1; j<=3; j++) cin>>a[i][j];
+        
+    for(int i=1; i<=3; i++)
+    for(int j=1; j<=3; j++) {
+        int t = a[i][j] + a[i-1][j] + a[i+1][j] +a[i][j-1] + a[i][j+1] +1;
+        ans[i][j] = t%2;
+    }
+        
+    for(int i=1; i<=3; i++) {
+        for(int j=1; j<=3; j++){
+            cout<<ans[i][j];
+        } 
+        cout<<nl;
+    }
     return;
 }
 
