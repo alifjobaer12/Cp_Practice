@@ -284,26 +284,20 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n;
-    vci a(n); arr_in(a, n);
 
-    int sumn = 0, sump = 0, ctn1 = 0, ctn01 = 0, ctn0 = 0;
-    for(int i=0; i<n; i++) {
-        if(a[i] < 0) {
-            sumn += a[i];
-            ctn01++;
-        } 
-        else if(a[i] > 0) {
-            sump += a[i];
-            ctn1++;
-        } 
-        else ctn0++;
+    if(n<4 || n%2) {
+        cout<<"-1"<<nl;
+        return;
     }
-    int ans = 0;
-    ans += abs(sumn + ctn01);
-    ans += sump - ctn1;
-    ans += ctn0;
-    if(ctn0==0 && ctn01%2) ans += 2;
-    cout<<ans<<nl;
+
+    int mn = n/6;
+    int mx = n/4;
+
+    if(n%6 >= 2) mn++;
+    if(n%4 >= 3) mx++;
+    // cout<<n%6<<" "<<n%4<<nl;
+    if(mn && mx) cout<<mn<<" "<<mx<<nl;
+    else cout<<"1 1"<<nl;
     return;
 }
 
@@ -316,11 +310,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }
