@@ -281,31 +281,20 @@ void precomp() {
 
     return;
 }
-const int N = 2e5+100;
-int a[N];
+
 void AliF_solve() {
-    int n, k; cin>>n>>k;
-    for(int i=0; i<n*k; i++) {
-        cin>>a[i];
+    int n; cin>>n;
+
+    n *= 3;
+    vci a;
+    for(int i=1, j=n-1; i<=n/2 && j>=n/2; i+=3, j-=3) {
+        a.pb(i+1);
+        a.pb(j+1);
     }
+    
+    cout<<a.size()/2<<nl;
+    for(int i=0; i<a.size(); i++) cout<<a[i]<<" \n"[i==a.size()-1];
 
-    // int x = (k+1);
-    // x = k - x;
-    int z =  n-(n+1)/2+1;
-    int ans = 0;
-
-    int p2 = n*k - 1;
-    while (k--) {
-        for (int i = 0; i < z; i++) {
-            if (i == z - 1) {
-                ans += a[p2];
-                // cout << x[p2] << "***" << nn;
-            }
-            p2--;
-        }
-    }
-
-    cout<<ans<<nl;
     return;
 }
 
