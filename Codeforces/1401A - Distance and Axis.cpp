@@ -283,15 +283,11 @@ void precomp() {
 }
 
 void AliF_solve() {
-    string a; cin>>a;
+    int k, n;cin>>n>>k;
 
-    int ctn0 = 0;
-    bool pn = false;
-    for(int i=a.size()-1; i>=0; i--) {
-        if(a[i]!='0') pn = true;
-        else if(pn) ctn0++;
-    }
-    cout<<a.size()-(ctn0+1)<<nl;
+    if(n<k) cout<<k-n<<nl;
+    else if(n%2==k%2) cout<<"0"<<nl;
+    else cout<<"1"<<nl;
     return;
 }
 

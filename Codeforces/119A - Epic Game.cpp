@@ -283,15 +283,21 @@ void precomp() {
 }
 
 void AliF_solve() {
-    string a; cin>>a;
+    int a, b, n;cin>>a>>b>>n;
 
-    int ctn0 = 0;
-    bool pn = false;
-    for(int i=a.size()-1; i>=0; i--) {
-        if(a[i]!='0') pn = true;
-        else if(pn) ctn0++;
+    int ctn = 0;
+    for(int i=0; i>=0; i++) {
+        if(i%2) n -= gcd(b, n);
+        else n -= gcd(a, n);
+
+        ctn++;
+
+        if(n<=0) break;
     }
-    cout<<a.size()-(ctn0+1)<<nl;
+
+    if(ctn%2) cout<<"0"<<nl;
+    else cout<<"1"<<nl;
+    // cout<<ctn<<nl;
     return;
 }
 
@@ -304,11 +310,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }
