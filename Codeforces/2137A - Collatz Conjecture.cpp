@@ -283,13 +283,17 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n, k; cin>>n>>k;
+    int k, x; cin>>k>>x;
 
-    int ans = 0;
-    if(!(n%2)) ans = n + 2*k;
-    for(int i=n; i>=2; i--) if(!(n%i)) ans = n + i + 2*(k-1);
+    while(k--) {
+        if(x%2) x *= 2;
+        else {
+            if((x - 1) % 3) x *= 2;
+            else x = (x - 1) / 3;
+        } 
+    }
 
-    cout<<ans<<nl;
+    cout<<x<<nl;
     return;
 }
 

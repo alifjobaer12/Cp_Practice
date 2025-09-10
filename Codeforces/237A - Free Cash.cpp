@@ -282,14 +282,21 @@ void precomp() {
     return;
 }
 
+
 void AliF_solve() {
-    int n, k; cin>>n>>k;
+    int n; cin>>n;
+    vector<prii> a;
+    for(int i=0; i<n; i++) {
+        int h, m; cin>>h>>m;
+        a.pb({h, m});
+    }
 
-    int ans = 0;
-    if(!(n%2)) ans = n + 2*k;
-    for(int i=n; i>=2; i--) if(!(n%i)) ans = n + i + 2*(k-1);
+    map<prii, int> m;
+    for(auto val: a) m[val]++;
+    int mx = INT_MIN;
+    for(auto val: m) mx = max(mx, val.S);
 
-    cout<<ans<<nl;
+    cout<<mx<<nl;
     return;
 }
 
@@ -302,11 +309,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }

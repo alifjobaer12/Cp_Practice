@@ -283,13 +283,21 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n, k; cin>>n>>k;
+    int n; cin>>n;
+    vci a(n); arr_in(a, n);
+    set<int> s;
+    for(int i=0; i<n; i++) s.insert(a[i]);
+    vci t;
+    for(auto val: s) t.pb(val);
 
-    int ans = 0;
-    if(!(n%2)) ans = n + 2*k;
-    for(int i=n; i>=2; i--) if(!(n%i)) ans = n + i + 2*(k-1);
-
-    cout<<ans<<nl;
+    int ctn = 0;
+    for(int i=0; i<t.size()-1; i++) {
+        if(t[i+1]-t[i]<=1) {
+            ctn++;
+            i++;
+        }
+    }
+    cout<<n-ctn-(n-t.size())<<nl;
     return;
 }
 

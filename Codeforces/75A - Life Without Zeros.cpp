@@ -283,13 +283,37 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n, k; cin>>n>>k;
+    int a, b; cin>>a>>b;
 
-    int ans = 0;
-    if(!(n%2)) ans = n + 2*k;
-    for(int i=n; i>=2; i--) if(!(n%i)) ans = n + i + 2*(k-1);
+    int sum = a+b;
 
-    cout<<ans<<nl;
+    string as, bs, ss;
+    while(a>0) {
+        int ln = a%10;
+        a /= 10;
+        if(!ln) continue;
+        as.pb(ln + '0');
+    }
+    while(b>0) {
+        int ln = b%10;
+        b /= 10;
+        if(!ln) continue;
+        bs.pb(ln + '0');
+    }
+
+    while(sum>0) {
+        int ln = sum%10;
+        sum /= 10;
+        if(!ln) continue;
+        ss.pb(ln + '0');
+    }
+    reverse(all(as));
+    reverse(all(bs));
+    reverse(all(ss));
+
+    if(stoi(as) + stoi(bs) == stoi(ss)) yes
+    else no
+    // cout<<ss<<" "<<as<<" "<<bs;
     return;
 }
 
@@ -302,11 +326,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }
