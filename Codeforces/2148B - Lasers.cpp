@@ -297,7 +297,13 @@ void precomp() {
 }
 
 void AliF_solve() {
-    
+    int n, m, x, y; cin>>n>>m>>x>>y;
+    vci a(n); arr_in(a, n);
+    vci b(m); arr_in(b, m);
+
+    int ans = 0;
+    ans += n+m;
+    cout<<ans<<nl;
     return;
 }
 

@@ -297,7 +297,18 @@ void precomp() {
 }
 
 void AliF_solve() {
-    
+    int n, m; cin>>n>>m;
+    int x, y, xd=0, yd=0, ans=0;
+
+    while(n--) {
+        cin>>x>>y;
+        ans += x-xd;
+        if(((x-xd+2)&1) != ((y-yd+2)&1)) ans--;
+        xd = x;
+        yd = y;
+    }
+    if(m!=xd) ans += m - xd;
+    cout<<ans<<nl;
     return;
 }
 

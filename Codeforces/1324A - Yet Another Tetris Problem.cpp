@@ -275,20 +275,6 @@ bool isPrime(int n) {
     return true;
 }
 
-vci sieve(int n) {
-    vector<bool> prime(n+1, true);
-    for(int i=2; i*i<=n; i++) {
-        if(prime[i]) {
-            for(int j=i*i; j<=n; j+=i) prime[j]=false;
-        }
-    }
-    vci ans;
-    for(int i=2; i<=n; i++) 
-        if(prime[i]) ans.pb(i);
-
-    return ans;
-}
-
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void precomp() {
@@ -297,7 +283,16 @@ void precomp() {
 }
 
 void AliF_solve() {
-    
+    int n; cin>>n; 
+    vci a(n); arr_in(a, n);
+
+    for(int i=0; i<n-1; i++) {
+        if(((a[i]&1) ^ (a[i+1]&1))) {
+            no
+            return;
+        }
+    }
+    yes
     return;
 }
 

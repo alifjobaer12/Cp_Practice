@@ -297,7 +297,9 @@ void precomp() {
 }
 
 void AliF_solve() {
-    
+    int a, b; cin>>a>>b;
+    if(b%2) cout<<a<<nl;
+    else cout<<0<<nl;
     return;
 }
 

@@ -297,7 +297,25 @@ void precomp() {
 }
 
 void AliF_solve() {
-    
+    int n; cin>>n;
+    vci a(n); arr_in(a, n);
+
+    int sum = 0;
+    vci odd;
+    for(int i=0; i<n; i++) {
+        if(a[i]%2) odd.pb(a[i]);
+        else sum += a[i];
+    }
+    // cout<<odd<<nl;
+    if(!odd.size()) {
+        cout<<"0"<<nl;
+        return;
+    } 
+    sort(all(odd));
+    int sz = odd.size()/2;
+    // cout<<sz<<nl;
+    for(int i=odd.size()-1; i>=sz; i--) sum += odd[i];
+    cout<<sum<<nl;
     return;
 }
 

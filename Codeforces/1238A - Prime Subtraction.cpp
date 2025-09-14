@@ -297,7 +297,10 @@ void precomp() {
 }
 
 void AliF_solve() {
-    
+    int x, y; cin>>x>>y;
+
+    if(x-y>1) yes
+    else no
     return;
 }
 
