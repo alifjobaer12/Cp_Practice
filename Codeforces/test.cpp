@@ -283,35 +283,26 @@ void precomp() {
 }
 
 void AliF_solve() {
-    string a, b; cin>>a>>b;
-    string x, y, sans;
-    for(int i=0; i<a.size(); i++) {
-        if(a[i]=='0') continue;
-        x.pb(a[i]);
+    long double a1,p1;
+   cin>>a1>>p1;
+   long double a2,p2;
+   cin>>a2>>p2;
+   while(a1>=10){
+     a1/=10;
+     p1++;
+   }
+   while(a2>=10){
+     a2/=10;
+     p2++;
+   }
+   if(p1>p2) cout<<">"<<nl;
+   else if(p1<p2) cout<<"<"<<nl;
+   else if(p1==p2){
+      if(a1>a2) cout<<">"<<nl;
+      else if(a1<a2) cout<<"<"<<nl;
+      else cout<<"="<<nl;
     }
-    for(int i=0; i<b.size(); i++) {
-        if(b[i]=='0') continue;
-        y.pb(b[i]);
-    }
-    int n1, n2, n11, n22;
-    n1 = stoi(a);
-    n2 = stoi(b);
-    n11 = stoi(x);
-    n22 = stoi(y);
-    
-    int ans = n1 + n2;
-    while(ans>=0) {
-        int ln = ans%10;
-        // sans.pb(ans%10 + '0');
-        cout<<ln;
-        ans /= 10;
-    }
-    
-    cout<<n1<<" "<<n2<<sans<<" "<<" "<<n11<<" "<<n22<<" ";
-
-    if(n1+n2 == n11+n22) yes
-    else no
-
+    else cout<<"="<<nl;
     return;
 }
 
@@ -324,11 +315,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }
