@@ -1,4 +1,4 @@
-//             STARTING WITH THE NAME OF ALMIGHTY ALLAH           //
+//             starting with the name of almighty ALLAH           //
 //                   ~ HI I'M alifjobaer12 ~                      //
 //              ^.^  TARGET NEXT ICPC REGION  ^.^                 //
 

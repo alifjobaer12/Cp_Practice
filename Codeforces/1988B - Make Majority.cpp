@@ -1,4 +1,4 @@
-//             STARTING WITH THE NAME OF ALMIGHTY ALLAH           //
+//             starting with the name of almighty ALLAH           //
 //                   ~ HI I'M alifjobaer12 ~                      //
 //              ^.^  TARGET NEXT ICPC REGION  ^.^                 //
 
@@ -297,14 +297,17 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int x, y; cin>>x>>y;
+    int n; cin>>n;
+    string a; cin>>a;
 
-    for(int i=0; i<32; i++) {
-        if((x&(1<<i)) != (y&(1<<i))) {
-            cout<<(1<<i)<<nl;
-            return;
-        }
+    int zr = 0, on = 0;
+    (a[0]=='0') ? zr++:on++;
+    for(int i=1; i<n; i++) {
+        if(a[i-1]=='1' && a[i]=='0') zr++;
+        if(a[i]=='1') on++;
     }
+    if(on>zr) yes
+    else no
     return;
 }
 
