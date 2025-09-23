@@ -297,17 +297,11 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n; cin>>n;
-    vci a(n); arr_in(a, n);
+    int n, k; cin>>n>>k;
 
-    int ctn = 0, ctn2 = 0;
-    for(int i=0; i<n; i++) {
-        if(a[i]%2 != i%2)
-            if(!(i%2)) ctn++;
-        else ctn2++;
-    }
-    if(ctn != ctn2) cout<<"-1"<<nl;
-    else cout<<ctn<<nl;
+    if(!(n & 1) || !((n-k) & 1)) yes
+    else no
+
     return;
 }
 
