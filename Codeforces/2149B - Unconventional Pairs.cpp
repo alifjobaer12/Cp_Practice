@@ -298,10 +298,14 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n;
+    vci a(n); arr_in(a, n);
 
-    int t = ceil(sqrt(n));
-    if(t*t==n) cout<<"0 "<<t<<nl;
-    else cout<<"-1"<<nl;
+    int mx = INT_MIN;
+    sort(all(a));
+    for(int i=0; i<n-1; i+=2) {
+        mx = max(mx, (a[i+1]-a[i]));
+    }
+    cout<<mx<<nl;
     return;
 }
 

@@ -298,10 +298,16 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n;
+    vci a(n); arr_in(a, n);
 
-    int t = ceil(sqrt(n));
-    if(t*t==n) cout<<"0 "<<t<<nl;
-    else cout<<"-1"<<nl;
+    map<int, int> f;
+    for(int i=0; i<n; i++) {
+        f[a[i]]++;
+    }
+    int ans = 0;
+    ans += f[0];
+    if(f[-1]%2) ans+=2;
+    cout<<ans<<nl;
     return;
 }
 

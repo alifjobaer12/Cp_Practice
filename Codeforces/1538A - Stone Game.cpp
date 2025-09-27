@@ -1,16 +1,16 @@
-//             STARTING WITH THE NAME OF ALMIGHTY ALLAH           //
+//             starting with the name of almighty ALLAH           //
 //                   ~ HI I'M alifjobaer12 ~                      //
 //              ^.^  TARGET NEXT ICPC REGION  ^.^                 //
 
 #include <bits/stdc++.h>
 #include <unistd.h>
-#include <ext/pb_ds/assoc_container.hpp> // Common file
-#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_bit.add
+//#include <ext/pb_ds/assoc_container.hpp> // Common file
+//#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_bit.add
 // #include <ext/pb_ds/detail/standard_policies.hpp>
 #include <random>
 
 using namespace std;
-using namespace __gnu_pbds;
+//using namespace __gnu_pbds;
 
 void __print(int x) {cerr << x;}
 void __print(long x) {cerr << x;}
@@ -26,6 +26,7 @@ void __print(const char *x) {cerr << '\"' << x << '\"';}
 void __print(const string &x) {cerr << '\"' << x << '\"';}
 void __print(bool x) {cerr << (x ? "true" : "false");}
 
+/*
 template<typename T, typename V>
 void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
 template<typename T>
@@ -38,6 +39,7 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #else
 #define debug(x...)
 #endif
+*/
 
 #define int ll
 #define ll long long
@@ -67,13 +69,12 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define gcd(a, b) __gcd(a, b)
 #define lcm(a, b) (a * (b / gcd(a, b)))
 #define sqr(a) ((a) * (a))
-#define arr_in(v,n) for(int i=0;i<n;i++) cin>>v[i]
-#define arr_out(v,n) for(int i=0; i<n; i++) cout<<v[i]<<" \n"[i==n-1]
-#define _out(v) for(auto &val:v)cout<<val<<" ";cout<<endl
+#define arr_in(v,n) for(int i=0;i<n;i++) cin>>v[i];
+#define arr_out(v,n) for(int i=0; i<n; i++) cout<<v[i]<<" ";cout<<endl;
+#define _out(v) for(auto &val:v)cout<<val<<" ";cout<<endl;
 #define srt_vc(v) sort(v.begin(),v.end());
 #define rsrt_vc(v) sort(v.rbegin(),v.rend());
 #define rv_vc(v) reverse(v.begin(),v.end());
-#define nl endl
 
 const double PI = (2.0 * acos(0.0));
 const double eps = 1e-9;
@@ -82,14 +83,14 @@ const ll infLL = 9000000000000000000;
 const long long M = 2e5 + 10, M2 = 1e6 + 20, oo = 1e9 + 7, mod = 998244353;
 const long long MC = (1 << 20) + 5;
 
-typedef vector<int> vci;
-typedef vector<ll> vcl;
-typedef vector<vci> vvci;
-typedef vector<vcl> vvcl;
-typedef vector<prii> vcii;
-typedef vector<prll> vcll;
-typedef vector<int>::iterator vit;
-typedef set<int>::iterator sit;
+//typedef vector<int> vci;
+//typedef vector<ll> vcl;
+//typedef vector<vci> vvci;
+//typedef vector<vcl> vvcl;
+//typedef vector<prii> vcii;
+//typedef vector<prll> vcll;
+//typedef vector<int>::iterator vit;
+//typedef set<int>::iterator sit;
 
 #define code_firster()                  \
     ios_base::sync_with_stdio(false);   \
@@ -111,6 +112,7 @@ int dy[] = {+1, -1, 0, 0};
 int fx[10] = {1, -1, 0, 0, 1, -1, 1, -1};
 int fy[10] = {0, 0, 1, -1, 1 , -1, -1, 1};
 
+/*
 template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 struct custom_hash {
@@ -181,6 +183,7 @@ ostream &operator<<(ostream &os, const map<F, S> &v) {
     return os << "]";
 }
 
+
 #define dbg(args...)            \
     do                          \
     {                           \
@@ -204,6 +207,7 @@ void faltu(T arg, const hello &...rest) {
     cerr << arg << ' ';
     faltu(rest...);
 }
+*/
 
 bool isok(int x,int y){
     if(x==y) return true;
@@ -262,33 +266,6 @@ long long pinverse (int num, int md) {
     return bigmod(num, md - 2, md);
 }
 
-bool isPrime(int n) {
-    if (n <= 1) return false;          
-    if (n == 2 || n == 3) return true; 
-    if (n % 2 == 0 || n % 3 == 0) return false;
-    
-    for (int i = 5; i <= sqrt(n); i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0)
-        return false;
-    }
-    
-    return true;
-}
-
-vci sieve(int n) {
-    vector<bool> prime(n+1, true);
-    for(int i=2; i*i<=n; i++) {
-        if(prime[i]) {
-            for(int j=i*i; j<=n; j+=i) prime[j]=false;
-        }
-    }
-    vci ans;
-    for(int i=2; i<=n; i++) 
-        if(prime[i]) ans.pb(i);
-
-    return ans;
-}
-
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 void precomp() {
@@ -296,12 +273,31 @@ void precomp() {
     return;
 }
 
+bool isPrime(int n) {
+    if (n <= 1) return false;          
+    if (n == 2 || n == 3) return true; 
+    if (n % 2 == 0 || n % 3 == 0) return false;
+
+    for (int i = 5; i <= sqrt(n); i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+    }
+
+    return true;
+}
+
 void AliF_solve() {
     int n; cin>>n;
-
-    int t = ceil(sqrt(n));
-    if(t*t==n) cout<<"0 "<<t<<nl;
-    else cout<<"-1"<<nl;
+    vector<int> a(n); arr_in(a, n);
+    
+    int mxp = max_element(all(a)) - a.begin();
+    int mnp = min_element(all(a)) - a.begin();
+    cout << min({
+            max(mxp, mnp) + 1,
+            (n - 1) - min(mxp, mnp) + 1,
+            (n - 1) - mxp + mnp + 2,
+            (n - 1) - mnp + mxp + 2
+    }) << "\n";
     return;
 }
 
