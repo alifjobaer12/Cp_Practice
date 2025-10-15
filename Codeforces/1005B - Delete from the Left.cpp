@@ -275,15 +275,18 @@ bool isPrime(int n) {
     return true;
 }
 
-const int sieve_arr_size = 1e7+1;
-vector<bool> prime(sieve_arr_size, true);
-void sieve() {
-    for(int i=2; i*i<=sieve_arr_size; i++) {
+vci sieve(int n) {
+    vector<bool> prime(n+1, true);
+    for(int i=2; i*i<=n; i++) {
         if(prime[i]) {
-            for(int j=(i*i); j<=sieve_arr_size; j+=i) prime[j]=false;
+            for(int j=i*i; j<=n; j+=i) prime[j]=false;
         }
     }
-    return;
+    vci ans;
+    for(int i=2; i<=n; i++) 
+        if(prime[i]) ans.pb(i);
+
+    return ans;
 }
 
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -294,7 +297,14 @@ void precomp() {
 }
 
 void AliF_solve() {
-    cout<<"HI!, Welcome To My Code ""alifjobaer12"""<<nl;
+    string a, b; cin>>a>>b;
+
+    int ctn = 0;
+    for(int i=0; i<min(a.size(), b.size()); i++) {
+        if(a[a.size()-i-1]==b[b.size()-i-1]) ctn++;
+        else break;
+    }
+    cout<<a.size()+b.size()-(ctn*2)<<nl;
     return;
 }
 
@@ -307,11 +317,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }

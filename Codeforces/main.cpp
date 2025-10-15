@@ -275,18 +275,15 @@ bool isPrime(int n) {
     return true;
 }
 
-vci sieve(int n) {
-    vector<bool> prime(n+1, true);
-    for(int i=2; i*i<=n; i++) {
+const int sieve_arr_size = 1e7+1;
+vector<bool> prime(sieve_arr_size, true);
+void sieve() {
+    for(int i=2; i*i<=sieve_arr_size; i++) {
         if(prime[i]) {
-            for(int j=i*i; j<=n; j+=i) prime[j]=false;
+            for(int j=(i*i); j<=sieve_arr_size; j+=i) prime[j]=false;
         }
     }
-    vci ans;
-    for(int i=2; i<=n; i++) 
-        if(prime[i]) ans.pb(i);
-
-    return ans;
+    return;
 }
 
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -297,17 +294,7 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n; cin>>n;
-    vci a(n); arr_in(a, n);
-
-    int sum = 0, ctn1 = 0;
-    for(int i=0; i<n; i++) {
-        sum += a[i];
-        if(a[i]==1) ctn1++;
-    }
-    if(sum >= ctn1+n && n>1) yes
-    else no
-    return;
+    cout<<"HI!, Welcome To My Code ""alifjobaer12"""<<nl;
 }
 
 int32_t main() {
@@ -319,11 +306,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }

@@ -294,7 +294,21 @@ void precomp() {
 }
 
 void AliF_solve() {
-    cout<<"HI!, Welcome To My Code ""alifjobaer12"""<<nl;
+    int n; cin>>n;
+    vci a(n); arr_in(a, n);
+
+    map<int, int> f;
+    for(auto val: a) f[val]++;
+
+    int ans = 0;
+    if(f[3]==f[1] || f[3]>f[1]) ans += f[4] + f[3] + (f[2]/2) + (f[2]%2);
+    else {
+        int t = (((f[1] - f[3]) + 1) / 2) + f[2];
+        ans += f[4] + f[3] + (t / 2) + (t % 2);
+    } 
+    cout<<ans<<nl;
+    // cout<<f<<nl;
+    
     return;
 }
 
@@ -307,11 +321,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }
