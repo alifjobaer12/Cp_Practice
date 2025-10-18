@@ -295,13 +295,15 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n; 
-    
-    vci a(n); arr_in(a, n);
-    int ans = INT_MIN;
-    for(int i=0; i<n; i++) {
-        ans = max(ans, a[i]);
+    if(n==0) {
+        cout<<1<<nl;
+        return;
     }
-    cout<<ans<<nl;
+
+    if(n % 4 == 1) cout<<"8"<<nl;
+    else if(n % 4 == 2) cout<<"4"<<nl;
+    else if(n % 4 == 3) cout<<"2"<<nl;
+    else if(n % 4 == 0) cout<<"6"<<nl;
     return;
 }
 
@@ -314,11 +316,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    t_c {
+    // t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    }
+    // }
     
     return 0;
 }
