@@ -295,20 +295,14 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n;
-    vci a(n); arr_in(a, n);
-
-    int ev = 0, od = 0;
-    for(auto val: a) {
-        if(val%2) od++;
-        else ev++;
+    string a, b; cin>>a>>b;
+    map<char, int> m1, m2;
+    for(int i=0; i<n; i++) {
+        m1[a[i]]++;
+        m2[b[i]]++;
     }
-
-    if(!ev && od>0 || !od && ev>0) {
-        for(int i=0; i<n; i++) cout<<a[i]<<" \n"[i==n-1];
-    } else{
-        sort(all(a));
-        for(int i=0; i<n; i++) cout<<a[i]<<" \n"[i==n-1];
-    }
+    if(m1==m2) yes
+    else no
     return;
 }
 

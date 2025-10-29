@@ -294,21 +294,11 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int n; cin>>n;
-    vci a(n); arr_in(a, n);
 
-    int ev = 0, od = 0;
-    for(auto val: a) {
-        if(val%2) od++;
-        else ev++;
-    }
+    int a, b, c, d; cin>>a>>b>>c>>d;
+    if(a==b && b==c && c==d) yes
+    else no
 
-    if(!ev && od>0 || !od && ev>0) {
-        for(int i=0; i<n; i++) cout<<a[i]<<" \n"[i==n-1];
-    } else{
-        sort(all(a));
-        for(int i=0; i<n; i++) cout<<a[i]<<" \n"[i==n-1];
-    }
     return;
 }
 
