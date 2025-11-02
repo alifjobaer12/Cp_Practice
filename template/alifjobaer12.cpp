@@ -277,9 +277,11 @@ bool isPrime(int n) {
 
 const int sieve_arr_size = 1e7+1;
 vector<bool> prime(sieve_arr_size, true);
+vector<int> allPrime;
 void sieve() {
     for(int i=2; i*i<=sieve_arr_size; i++) {
         if(prime[i]) {
+            allPrime.pb(i);
             for(int j=(i*i); j<=sieve_arr_size; j+=i) prime[j]=false;
         }
     }

@@ -277,9 +277,11 @@ bool isPrime(int n) {
 
 const int sieve_arr_size = 1e7+1;
 vector<bool> prime(sieve_arr_size, true);
+vector<int> allPrime;
 void sieve() {
     for(int i=2; i*i<=sieve_arr_size; i++) {
         if(prime[i]) {
+            allPrime.pb(i);
             for(int j=(i*i); j<=sieve_arr_size; j+=i) prime[j]=false;
         }
     }
@@ -295,20 +297,22 @@ void precomp() {
 
 void AliF_solve() {
     int n; cin>>n;
-    vci a(n); arr_in(a, n);
-
-    int ev = 0, od = 0;
-    for(auto val: a) {
-        if(val%2) od++;
-        else ev++;
+    n--;
+    int a[n][2];
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<2; j++) {
+            int x; cin>>x;
+            a[i][j] = x;
+        }
     }
-
-    if(!ev && od>0 || !od && ev>0) {
-        for(int i=0; i<n; i++) cout<<a[i]<<" \n"[i==n-1];
-    } else{
-        sort(all(a));
-        for(int i=0; i<n; i++) cout<<a[i]<<" \n"[i==n-1];
+    // sort(a, a+n);
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<2; j++) {
+            cout<<a[i][j]<< " ";
+        }
+        cout<<nl;
     }
+    
     return;
 }
 
