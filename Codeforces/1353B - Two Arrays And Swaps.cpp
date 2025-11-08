@@ -47,6 +47,7 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define triprii pair < int, pair < int, pair < int, int > > >
 #define in_prii pair < int, prii >
 #define prdd pair<double, double>
+#define endl '\n'
 #define yes cout<<"YES"<<'\n';
 #define no cout<<"NO"<<'\n';
 #define pb push_back
@@ -55,6 +56,7 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define MP make_pair
 #define all(a) (a).begin(), (a).end()
 #define rall(a) (a).rbegin(), (a).rend()
+#define sz(x) (int)x.size()
 #define mid(l, r) ((r + l) / 2)
 #define t_c int TT; cin >> TT; for (int tc = 1; tc <= TT; tc++)
 #define l_node(node) (node * 2)
@@ -66,7 +68,12 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #define lcm(a, b) (a * (b / gcd(a, b)))
 #define sqr(a) ((a) * (a))
 #define arr_in(v,n) for(int i=0;i<n;i++) cin>>v[i]
-#define nl '\n'
+#define arr_out(v,n) for(int i=0; i<n; i++) cout<<v[i]<<" \n"[i==n-1]
+#define _out(v) for(auto &val:v)cout<<val<<" ";cout<<endl
+#define srt_vc(v) sort(v.begin(),v.end());
+#define rsrt_vc(v) sort(v.rbegin(),v.rend());
+#define rv_vc(v) reverse(v.begin(),v.end());
+#define nl endl
 
 const double PI = (2.0 * acos(0.0));
 const double eps = 1e-9;
@@ -289,18 +296,20 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int a, b; cin>>a>>b;
-    int c = 0, h = 0;
-    while (a>0) {
-        a--;
-        c++;
-        h++;
-        if(c==b) {
-            a++;
-            c = 0;
-        }
-    }
-    cout<<h<<nl;
+    int n, k; cin>>n>>k;
+    vci a(n), b(n); arr_in(a, n); arr_in(b, n);
+
+    sort(all(a));
+    sort(b.rbegin(), b.rend());
+
+    // cout<<a<<nl;
+    // cout<<b<<nl;
+
+    int sum = 0;
+    for(int i=0; i<k; i++) sum += max(a[i], b[i]);
+    for(int i=k; i<n; i++) sum += a[i];
+
+    cout<<sum<<nl;
     return;
 }
 
@@ -313,11 +322,11 @@ int32_t main() {
     // int T;
     // scanf("%d", &T);
     // while (T--) {
-    // t_c {
+    t_c {
         // cout << "Case #" << tc << ": ";
         // cout << "Case " << tc << ": ";
         AliF_solve();
-    // }
+    }
     
     return 0;
 }

@@ -289,18 +289,18 @@ void precomp() {
 }
 
 void AliF_solve() {
-    int a, b; cin>>a>>b;
-    int c = 0, h = 0;
-    while (a>0) {
-        a--;
-        c++;
-        h++;
-        if(c==b) {
-            a++;
-            c = 0;
+    int n; cin>>n;
+    bool ctn = 0;
+    while(n--) {
+        int a1, a2, b1, b2; cin>>a1>>b1;
+        if(a1<b1) {
+            ctn = 1;
+            break;
         }
     }
-    cout<<h<<nl;
+    if(ctn) cout<<"Happy Alex\n";
+    else cout<<"Poor Alex\n";
+    
     return;
 }
 
